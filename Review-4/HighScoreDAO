@@ -1,0 +1,17 @@
+import java.util.*;
+
+public class HighScoreDAO {
+    private List<String> highScores;
+
+    public HighScoreDAO() {
+        highScores = new ArrayList<>();
+    }
+
+    public List<String> getHighScores() {
+        return highScores;
+    }
+
+    public void addHighScore(String score) {
+        highScores.add(score);
+    }
+}
