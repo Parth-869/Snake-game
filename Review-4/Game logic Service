@@ -1,0 +1,5 @@
+public class SnakeGameService {
+    public int calculateScore(int snakeLength) {
+        return snakeLength * 10; // Each segment is worth 10 points.
+    }
+}
