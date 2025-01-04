@@ -1,0 +1,32 @@
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+import java.io.*;
+import java.util.*;
+
+public class SnakeGameServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+    private List<String> highScores;
+
+    @Override
+    public void init() throws ServletException {
+        highScores = new ArrayList<>();
+        highScores.add("User1: 100");
+        highScores.add("User2: 80");
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("highScores", highScores);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("game.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String username = request.getParameter("username");
+        String score = request.getParameter("score");
+        highScores.add(username + ": " + score);
+
+        response.sendRedirect("SnakeGameServlet");
+    }
+}
