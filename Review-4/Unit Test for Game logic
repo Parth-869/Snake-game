@@ -1,0 +1,26 @@
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class SnakeGameServiceTest {
+
+    @Test
+    public void testCalculateScore() {
+        SnakeGameService service = new SnakeGameService();
+
+        // Test case: Snake with 1 segment
+        int score1 = service.calculateScore(1);
+        assertEquals(10, score1, "Score should be 10 for snake length 1");
+
+        // Test case: Snake with 5 segments
+        int score5 = service.calculateScore(5);
+        assertEquals(50, score5, "Score should be 50 for snake length 5");
+
+        // Test case: Snake with 0 segments
+        int score0 = service.calculateScore(0);
+        assertEquals(0, score0, "Score should be 0 for snake length 0");
+
+        // Test case: Snake with 10 segments
+        int score10 = service.calculateScore(10);
+        assertEquals(100, score10, "Score should be 100 for snake length 10");
+    }
+}
