@@ -1,0 +1,13 @@
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class HighScoreDAOTest {
+    @Test
+    public void testAddHighScore() {
+        HighScoreDAO dao = new HighScoreDAO();
+        dao.addHighScore("User1: 100");
+
+        assertEquals(1, dao.getHighScores().size());
+        assertTrue(dao.getHighScores().contains("User1: 100"));
+    }
+}
